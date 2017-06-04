@@ -10,24 +10,22 @@ class Input extends React.Component{
     super();
     this.state = {
       searchTerms: ''
-    }
-  };
+    };
+  }
     handleInputChange(e){
       this.setState({
         searchTerms: e.target.value
-       
-      });
-       //console.log('search Terms ' + searchTerms);
+       });
+      
     }
-   handleOutput(searchTerms){
-    //API call
-    
- console.log(marked('I am using 00121'));
-  }
+
    render(){
+   	var searchTerms = this.state.searchTerms;
+   	console.log(searchTerms);
      return(
       <div>
-         <textarea onClick={this.handleOutput.bind(this)} cols="40" rows="5"></textarea>
+         <textarea onChange={this.handleInputChange.bind(this)} value={searchTerms} cols="40" rows="5"></textarea>
+         <h1>{searchTerms}</h1>
       
       </div>
      );
@@ -44,14 +42,9 @@ class MarkedOutput extends React.Component{
     };
   }
   
-//   handleInput(searchTerms){
-//     //API call
-    
-//     axios.get('https://en.wikipedia.org//w/api.php?action=opensearch&format=json&origin=*&search=dog&limit=10').then(response => {
-//       console.log(response);
-//     });
-//   }
+
 }
+
 
 
 ReactDOM.render(<Input />, document.getElementById('app'));
