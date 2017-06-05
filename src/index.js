@@ -9,7 +9,7 @@ class Input extends React.Component{
   constructor(){
     super();
     this.state = {
-      searchTerms: ''
+      searchTerms: '*italic* **bold**, ~~strikethrough~~'
     };
   }
     handleInputChange(e){
@@ -21,14 +21,11 @@ class Input extends React.Component{
 
    render(){
    	var searchTerms = this.state.searchTerms;
-   	console.log(searchTerms);
-   	console.log(marked('Text attributes *italic*'));
    	var markedUp = marked(searchTerms);
-
-     return(
+		return(
       <div>
-         <textarea onChange={this.handleInputChange.bind(this)} value={searchTerms} cols="40" rows="5"></textarea>
-         <span dangerouslySetInnerHTML={{__html: markedUp}} />
+         <textarea className="input" onChange={this.handleInputChange.bind(this)} value={searchTerms} cols="40" rows="5"></textarea>
+         <span dangerouslySetInnerHTML={{__html: markedUp}} className="output"/>
       
       </div>
      );
@@ -36,17 +33,6 @@ class Input extends React.Component{
   
 }
 
-//Marked Component
-class MarkedOutput extends React.Component{
-  constructor(){
-    super();
-    this.state = {
-      output: ''
-    };
-  }
-  
-
-}
 
 
 
