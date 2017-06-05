@@ -25,7 +25,7 @@ class Input extends React.Component{
      return(
       <div>
          <textarea onChange={this.handleInputChange.bind(this)} value={searchTerms} cols="40" rows="5"></textarea>
-         <h1>{searchTerms}</h1>
+         <h1>marked({searchTerms})</h1>
       
       </div>
      );
