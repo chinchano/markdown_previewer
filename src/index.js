@@ -22,10 +22,13 @@ class Input extends React.Component{
    render(){
    	var searchTerms = this.state.searchTerms;
    	console.log(searchTerms);
+   	console.log(marked('Text attributes *italic*'));
+   	var markedUp = marked(searchTerms);
+
      return(
       <div>
          <textarea onChange={this.handleInputChange.bind(this)} value={searchTerms} cols="40" rows="5"></textarea>
-         <h1>marked({searchTerms})</h1>
+         <span dangerouslySetInnerHTML={{__html: markedUp}} />
       
       </div>
      );
